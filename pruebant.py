@@ -16,4 +16,12 @@ Menu Concactos
 
 Ingrese Opcion:""")
     menu=int(input("> "))
-    
+
+    if menu==1:
+        opcion_1
+    elif menu==2:
+        pass
+    elif menu==3:
+        pass
+    elif menu==4:
+        pass
