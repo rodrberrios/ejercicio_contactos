@@ -28,10 +28,20 @@ def opcion_2():
 
 
 def opcion_3():
-    pass
+    if len(contactos)==0:
+        print("No existen contactos, agregue al menos uno!")
+    else:
+        nombre_archivo=input("Ingrese nombre del archivo\n> ")
+        import csv
+        with open(f"{nombre_archivo}.csv","w") as archivo:
+            escritor= csv.DictWriter(archivo, ["nombre","telefono","correo"])
+            escritor.writeheader()
+            escritor.writerows(contactos)
+        
 
 def opcion_4():
-    pass
+    print("Adios")
+    exit()
 
 def validar_int(nro1):
     while True:

@@ -22,6 +22,6 @@ Ingrese Opcion:""")
     elif menu==2:
         opcion_2
     elif menu==3:
-        pass
+        opcion_3
     elif menu==4:
         pass
