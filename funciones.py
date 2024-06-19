@@ -15,7 +15,17 @@ def opcion_1():
     print("Contacto Agregado!")
 
 def opcion_2():
-    pass
+    print("Lista Contactos")
+
+    if len(contactos)==0:
+        print("No existen contactos!, agruege al menos un contacto!")
+    else:
+        for x in contactos:
+            print(f"Nombre: {x['nombre']} ")
+            print(f"Telefono: {x['telefono']} ")
+            print(f"Correo: {x['correo']} \n")
+            
+
 
 def opcion_3():
     pass

@@ -20,7 +20,7 @@ Ingrese Opcion:""")
     if menu==1:
         opcion_1
     elif menu==2:
-        pass
+        opcion_2
     elif menu==3:
         pass
     elif menu==4:
