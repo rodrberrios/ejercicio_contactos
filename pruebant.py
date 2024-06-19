@@ -15,13 +15,15 @@ Menu Concactos
 4. Salir
 
 Ingrese Opcion:""")
-    menu=int(input("> "))
+    validar_int()
+    menu= validar_int
+
 
     if menu==1:
-        opcion_1
+        opcion_1()
     elif menu==2:
-        opcion_2
+        opcion_2()
     elif menu==3:
-        opcion_3
+        opcion_3()
     elif menu==4:
-        pass
+        opcion_4()

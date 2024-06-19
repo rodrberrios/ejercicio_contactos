@@ -3,9 +3,9 @@ contactos=[]
 
 def opcion_1():
     print("Agregar Contacto")
-    nombre=input("Ingrese nombre\n> ")
-    telefono=int(input("Ingrese telefono\n> "))
-    correo=input("Ingrese Correo\n > ")
+    nombre= validar_nombre()
+    telefono= validar_telefono()
+    correo= validar_correo()
     contacto={"nombre":nombre,
               "telefono":telefono,
               "correo":correo
@@ -17,9 +17,7 @@ def opcion_1():
 def opcion_2():
     print("Lista Contactos")
 
-    if len(contactos)==0:
-        print("No existen contactos!, agruege al menos un contacto!")
-    else:
+    if validar_contactos:
         for x in contactos:
             print(f"Nombre: {x['nombre']} ")
             print(f"Telefono: {x['telefono']} ")
@@ -28,9 +26,7 @@ def opcion_2():
 
 
 def opcion_3():
-    if len(contactos)==0:
-        print("No existen contactos, agregue al menos uno!")
-    else:
+    if validar_contactos():
         nombre_archivo=input("Ingrese nombre del archivo\n> ")
         import csv
         with open(f"{nombre_archivo}.csv","w") as archivo:
@@ -43,13 +39,50 @@ def opcion_4():
     print("Adios")
     exit()
 
-def validar_int(nro1):
+
+
+def validar_int(nro):
     while True:
         try:
-            nro1=int(input("> "))
-            if nro1>0:
-                break
+            nro=int(input("> "))
+            if nro>0:
+                return nro
             else:
-                print("ERROR! ingrese una opcion Valida")     
+                print("ERROR! ingrese una opcion Valida")
+                  
         except:
             print("Error!, ingrese una opcion en numero ENTERO!")
+            
+
+def validar_nombre():
+    while True:
+        nombre=input("Ingrese nombre\n> ")
+        if len(nombre)>=3 and nombre.isalpha():
+            return nombre
+        else:
+            print("Error, ingrese nombre valido")
+
+def validar_telefono():
+    while True:
+        try:
+            telefono= int(input("Ingrese telefono: "))
+            if len(str(telefono))==9 and str(telefono)[0]=='9':
+                return telefono
+            else:
+                print("Error! el telefono debe comenzar con 9 y tener 9 digitos")
+        except:
+            print("error")
+
+def validar_correo():
+    while True:
+        correo=input("Ingrese correo: ")
+        if correo.lower().endswith("@gmail.com") and len(correo.strip())>=13:
+            return correo
+        else:
+            print("Error!, correo invalido")
+
+def validar_contactos():
+    if len(contactos)==0:
+        print("No existen contactos!, agruege al menos un contacto!")
+        return False
+    return True
